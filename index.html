@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Attendance Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">STUDENT RECORDS</p>
+      <h1>Attendance Management</h1>
+      <p class="subtitle">Add students, record daily attendance, and track attendance percentages.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="stats">
+      <article class="stat-card"><span>Total students</span><strong id="totalStudents">0</strong></article>
+      <article class="stat-card"><span>Present on selected date</span><strong id="presentCount">0</strong></article>
+      <article class="stat-card"><span>Absent on selected date</span><strong id="absentCount">0</strong></article>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div><h2>Add student</h2><p>Enter a unique roll number for each student.</p></div>
+      </div>
+      <form id="studentForm" class="student-form">
+        <label>Student name<input id="studentName" type="text" placeholder="e.g. Rahul Kumar" required maxlength="100"></label>
+        <label>Roll number<input id="rollNumber" type="text" placeholder="e.g. 101" required maxlength="30"></label>
+        <button type="submit" class="primary">+ Add student</button>
+      </form>
+      <p id="message" class="message" role="status"></p>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading attendance-heading">
+        <div><h2>Daily attendance</h2><p>Choose a date, then save each student's status.</p></div>
+        <label class="date-field">Attendance date<input id="attendanceDate" type="date" required></label>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>Roll No.</th><th>Student name</th><th>Status for date</th>
+            <th>Present</th><th>Absent</th><th>Attendance %</th><th>Action</th>
+          </tr></thead>
+          <tbody id="studentTable">
+            <tr><td colspan="7" class="empty">Loading students…</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="footnote">Percentage = present days ÷ recorded attendance days × 100. Students with no recorded attendance show 0%.</p>
+    </section>
+  </main>
+  <footer>Student Attendance Management System · Mini Project</footer>
+  <script src="script.js"></script>
+</body>
+</html>
